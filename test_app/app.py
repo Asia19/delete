@@ -2,6 +2,7 @@
 """The app module, containing the app factory function."""
 import logging
 import sys
+import whitenoise
 
 from flask import Flask, render_template
 
@@ -17,8 +18,6 @@ from test_app.extensions import (
     migrate,
 )
 
-from whitenoise import WhiteNoise
-
 
 def create_app(config_object="test_app.settings"):
     """Create application factory, as explained here: http://flask.pocoo.org/docs/patterns/appfactories/.
@@ -27,7 +26,7 @@ def create_app(config_object="test_app.settings"):
     """
     app = Flask(__name__.split(".")[0])
     app.config.from_object(config_object)
-    app.wsgi_app = WhiteNoise(app.wsgi_app, root='static/')
+    app.wsgi_app = whitenoise.WhiteNoise(app.wsgi_app, root='static/')
     register_extensions(app)
     register_blueprints(app)
     register_errorhandlers(app)
