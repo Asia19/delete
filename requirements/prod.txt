@@ -23,6 +23,9 @@ gevent==20.12.1
 gunicorn>=19.9.0
 supervisor==4.2.1
 
+# Whitenoise
+whitenoise==5.2.0
+
 # Flask Static Digest
 Flask-Static-Digest==0.2.1
 
