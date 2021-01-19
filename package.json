@@ -16,7 +16,7 @@
     "flask-static-digest": "flask digest compile",
     "lint": "eslint \"assets/js/*.js\"",
     "heroku-prebuild": "npm install",
-    "heroku-postbuild": "webpack --config webpack.dev.js"
+    "heroku-postbuild": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
