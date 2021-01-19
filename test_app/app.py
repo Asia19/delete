@@ -33,6 +33,10 @@ def create_app(config_object="test_app.settings"):
     register_shellcontext(app)
     register_commands(app)
     configure_logger(app)
+
+    @app.template_global()
+    def static_url(prefix, filename):
+        return f"{prefix}/{filename}"
     return app
 
 
