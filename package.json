@@ -16,7 +16,7 @@
     "flask-static-digest": "flask digest compile",
     "lint": "eslint \"assets/js/*.js\"",
     "heroku-prebuild": "npm install",
-    "heroku-postbuild": "webpack --mode production --config webpack.config.js"
+    "heroku-postbuild": "webpack --mode production --config webpack.config.js --progress --color --optimization-minimize && npm run flask-static-digest"
   },
   "repository": {
     "type": "git",

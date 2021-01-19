@@ -27,18 +27,12 @@ def create_app(config_object="test_app.settings"):
     """
     app = Flask(__name__.split(".")[0], static_folder='static/')
     app.config.from_object(config_object)
-    # app.wsgi_app = whitenoise.WhiteNoise(app.wsgi_app, root='static/')
     register_extensions(app)
     register_blueprints(app)
     register_errorhandlers(app)
     register_shellcontext(app)
     register_commands(app)
     configure_logger(app)
-
-    @app.template_global()
-    def static_url(prefix, filename):
-        return f"{prefix}/{filename}"
-
     return app
 
 
@@ -51,7 +45,7 @@ def register_extensions(app):
     login_manager.init_app(app)
     debug_toolbar.init_app(app)
     migrate.init_app(app, db)
-    # flask_static_digest.init_app(app)
+    flask_static_digest.init_app(app)
     return None
 
 
