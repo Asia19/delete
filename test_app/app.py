@@ -24,7 +24,7 @@ def create_app(config_object="test_app.settings"):
 
     :param config_object: The configuration object to use.
     """
-    app = Flask(__name__.split(".")[0])
+    app = Flask(__name__.split(".")[0], static_folder='static/')
     app.config.from_object(config_object)
     app.wsgi_app = whitenoise.WhiteNoise(app.wsgi_app, root='static/')
     register_extensions(app)
