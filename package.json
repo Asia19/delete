@@ -4,8 +4,8 @@
   "description": "c",
   "scripts": {
     "build": "run-script-os",
-    "build:win32": "SET NODE_ENV=webpack --config webpack.config.js --mode production --progress --color --optimization-minimize && npm run flask-static-digest",
-    "build:default": "NODE_ENV=webpack --config webpack.config.js --mode production --progress --color --optimization-minimize && npm run flask-static-digest",
+    "build:win32": "SET NODE_ENV=webpack --mode production --progress --color --optimization-minimize",
+    "build:default": "NODE_ENV=webpack --mode production --progress --color --optimization-minimize",
     "start": "run-script-os",
     "start:win32": "concurrently -n \"WEBPACK,FLASK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run webpack-watch:win32\" \"npm run flask-server\"",
     "start:default": "concurrently -n \"WEBPACK,FLASK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run webpack-watch\" \"npm run flask-server\"",
